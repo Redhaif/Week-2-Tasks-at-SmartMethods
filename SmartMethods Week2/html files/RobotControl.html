@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Arm Control</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <div class="div1">
+            <a href="index.html">
+                <img src="img folder/logo.png" class="img1" width="200" height="200">
+            </a>
+            <img src="img folder/Shadow_Hand_Bulb_large.jpg" class="img2" width="190" height="190">
+            
+        
+    </div>
+    <br><br><br>
+
+
+      <form action="connect.php" method="post">
+        <div class="rangeSlider">
+            <p class="text">Arm Engine 1</p>
+            <input type="range" class="range" id="arm1" name="arm1">
+            <output class="bubble"></output>
+          </div>
+          
+          <div class="rangeSlider">
+            <p class="text">Arm Engine 2</p>
+            <input type="range" class="range" id="arm2" name="arm2">
+            <output class="bubble"></output>
+          </div>
+
+          <div class="rangeSlider">
+            <p class="text">Arm Engine 3</p>
+            <input type="range" class="range" id="arm3" name="arm3">
+            <output class="bubble"></output>
+          </div>
+
+          <div class="rangeSlider">
+            <p class="text">Arm Engine 4</p>
+            <input type="range" class="range" id="arm4" name="arm4">
+            <output class="bubble"></output>
+          </div>
+
+          <div class="rangeSlider">
+            <p class="text">Arm Engine 5</p>
+            <input type="range" class="range" id="arm5" name="arm5">
+            <output class="bubble"></output>
+          </div>
+
+          <div class="rangeSlider">
+            <p class="text">Arm Engine 6</p>
+            <input type="range" class="range" id="arm6" name="arm6">
+            <output class="bubble"></output>
+          </div>
+          <input name="submit" type="submit" value="Save">
+          <input name="submit" type="submit" value="Start">
+
+          <script>
+              const allRanges = document.querySelectorAll(".rangeSlider");
+                allRanges.forEach(wrap => {
+                const range = wrap.querySelector(".range");
+                const bubble = wrap.querySelector(".bubble");
+
+                range.addEventListener("input", () => {
+                setBubble(range, bubble);
+                 });
+                setBubble(range, bubble);
+            });
+
+            function setBubble(range, bubble) {
+            const val = range.value;
+            const min = range.min ? range.min : 0;
+            const max = range.max ? range.max : 100;
+            const newVal = Number(((val - min) * 100) / (max - min));
+            bubble.innerHTML = val;
+
+            }
+          </script>
+    </body>
+    </html>
