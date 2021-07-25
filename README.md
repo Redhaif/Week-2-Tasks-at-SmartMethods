@@ -17,6 +17,7 @@ Redha Al Dhaif <br />
 
 ====================================================================================================================== <br />
  I updated the Week 2 Tasks. <br />
+ Link to the website: https://first-firebase-project-3e7af.web.app/ <br />
  
  The file now contains: <br />
  1- The Arm slider control html file. <br />
