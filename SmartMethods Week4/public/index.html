@@ -1,0 +1,184 @@
+<html>
+    <head>
+        <title>Arm Control</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        
+         <!-- The core Firebase JS SDK is always required and must be listed first -->
+         <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+         <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+
+         <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+         <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
+ 
+         <script>
+         // Your web app's Firebase configuration
+         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+         var firebaseConfig = {
+             apiKey: "AIzaSyDZzd8VgiLmIID2HFX_lUkAIRttT_15ycg",
+             authDomain: "first-firebase-project-3e7af.firebaseapp.com",
+             projectId: "first-firebase-project-3e7af",
+             storageBucket: "first-firebase-project-3e7af.appspot.com",
+             messagingSenderId: "110339220020",
+             appId: "1:110339220020:web:d86963b73aa3c3eb192061",
+             measurementId: "G-5L25QLK5JT"
+         };
+         
+         // Initialize Firebase
+         firebase.initializeApp(firebaseConfig);
+         firebase.analytics();
+
+         function myButton(x) {
+             firebase.database().ref("Movement").set({
+                movement: document.getElementById(x).value
+             });
+               
+        }
+
+        function myFunction(clicked_id){
+            var x = 0;
+
+            switch (clicked_id) {
+                case 1:
+                    x = 1;
+                    myButton(x);
+                break;
+                case 2:
+                    x = 2;
+                    myButton(x);
+                break;
+                case 3:
+                    x = 3;
+                    myButton(x);
+                break;
+                case 4:
+                    x = 4;
+                    myButton(x);
+                break;
+            }
+        }
+                 
+         </script>
+
+        <div class="div1">
+            <a href="index.html">
+                <img src="img folder/logo.png" class="img1" width="200" height="200">
+            </a>
+            <img src="img folder/Shadow_Hand_Bulb_large.jpg" class="img2" width="190" height="190">
+            
+
+        </div>
+        <br><br><br>
+
+        <div id="rotateMode">
+            <div>
+                <button class="button1" type="button" placeholder= "movement" id="1" value="Up" onclick="myButton(this.id)">Up</button>  
+            </div>
+
+            <div>
+                <button class="button2" type="button" placeholder= "movement" id="2" value="Left" onclick="myButton(this.id)">Left</button> 
+                <button class="button3" type="button" placeholder= "movement" id="3" value="Right" onclick="myButton(this.id)">Right</button>  
+            </div>
+
+            <div>
+                <button class="button4" type="button" placeholder= "movement" id="4" value="Down" onclick="myButton(this.id)">Down</button>  
+            </div>
+
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br>
+
+
+        <!--This is the Arm Sliders control code-->
+        <div class="sliderDiv">
+            <div class="rangeSlider">
+                <p class="text">Arm Engine 1</p>
+                <input type="range" class="range" placeholder="arm1" id="arm1" >
+                <output class="bubble"></output>
+            </div>
+            
+            <div class="rangeSlider">
+                <p class="text">Arm Engine 2</p>
+                <input type="range" class="range" placeholder="arm2" id="arm2">
+                <output class="bubble"></output>
+            </div>
+
+            <div class="rangeSlider">
+                <p class="text">Arm Engine 3</p>
+                <input type="range" class="range" placeholder="arm3" id="arm3">
+                <output class="bubble"></output>
+            </div>
+
+            <div class="rangeSlider">
+                <p class="text">Arm Engine 4</p>
+                <input type="range" class="range" placeholder="arm4" id="arm4">
+                <output class="bubble"></output>
+            </div>
+
+            <div class="rangeSlider">
+                <p class="text">Arm Engine 5</p>
+                <input type="range" class="range" placeholder="arm5" id="arm5">
+                <output class="bubble"></output>
+            </div>
+
+            <div class="rangeSlider">
+                <p class="text">Arm Engine 6</p>
+                <input type="range" class="range" placeholder="arm6" id="arm6">
+                <output class="bubble"></output>
+            </div>
+        </div>
+            <input class="saveBtn" name="submit" type="submit" value="Save" onclick="mySlider()">
+
+          <script>
+            const allRanges = document.querySelectorAll(".rangeSlider");
+              allRanges.forEach(wrap => {
+              const range = wrap.querySelector(".range");
+              const bubble = wrap.querySelector(".bubble");
+
+              range.addEventListener("input", () => {
+              setBubble(range, bubble);
+               });
+              setBubble(range, bubble);
+          });
+
+          function setBubble(range, bubble) {
+          const val = range.value;
+          const min = range.min ? range.min : 0;
+          const max = range.max ? range.max : 100;
+          const newVal = Number(((val - min) * 100) / (max - min));
+          bubble.innerHTML = val;
+
+          }
+
+          function mySlider() {
+             firebase.database().ref("Slider").set({
+                 arm1: document.getElementById("arm1").value,
+                 arm2: document.getElementById("arm2").value,
+                 arm3: document.getElementById("arm3").value,
+                 arm4: document.getElementById("arm4").value,
+                 arm5: document.getElementById("arm5").value,
+                 arm6: document.getElementById("arm6").value
+             });
+         }
+
+        </script>
+
+        <script>
+            window.watsonAssistantChatOptions = {
+                integrationID: "345a1633-6c36-45db-9a5c-547428b8aa6d", // The ID of this integration.
+                region: "eu-de", // The region your integration is hosted in.
+                serviceInstanceID: "bec4cab7-5264-485d-b2fe-f34221b0184b", // The ID of your service instance.
+                onLoad: function(instance) { instance.render(); }
+            };
+            setTimeout(function(){
+            const t=document.createElement('script');
+            t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+            document.head.appendChild(t);
+            });
+        </script>
+
+    </body>
+</html>
