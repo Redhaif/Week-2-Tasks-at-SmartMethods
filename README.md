@@ -14,3 +14,16 @@ If i could get help regarding this issue that would be great. <br />
 
 Thanks for reading, <br />
 Redha Al Dhaif <br />
+
+====================================================================================================================== <br />
+ I updated the Week 2 Tasks. <br />
+ 
+ The file now contains: <br />
+ 1- The Arm slider control html file. <br />
+ 2- Robot arm movement control html. <br />
+ 3- IBM Watson chatbot.
+ 
+ The main change is that I used firebase database instead of phpMyadmin. <br />
+ 
+Thanks for reading, <br />
+Redha Al Dhaif <br />
