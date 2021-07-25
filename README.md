@@ -15,7 +15,7 @@ If i could get help regarding this issue that would be great. <br />
 Thanks for reading, <br />
 Redha Al Dhaif <br />
 
-====================================================================================================================== <br />
+=============================================================================================== <br />
  I updated the Week 2 Tasks. <br />
  Link to the website: https://first-firebase-project-3e7af.web.app/ <br />
  
